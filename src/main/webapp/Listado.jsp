@@ -23,7 +23,7 @@
 <table  border= "2"  align="center">
 
 <tr>
-
+<td>id</td>
 <td>Nombre</td>
 <td>precio</td>
 <td>Precioven</td>

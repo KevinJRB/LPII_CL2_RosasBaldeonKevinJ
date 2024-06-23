@@ -16,14 +16,7 @@ public class ClassUsuariolmp implements Iusuario{
 		
 		
 		
-		EntityManagerFactory fabr=Persistence.createEntityManagerFactory("LPII_CL2_RosasBaldeonKevinJ");
-		EntityManager em=fabr.createEntityManager();
-		em.getTransaction().begin();
-		em.persist(Usuario);
-		em.getTransaction().commit();
-		em.close();
-		// TODO Auto-generated method stub
-		
+	
 	}
 
 	@Override
