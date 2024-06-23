@@ -19,18 +19,24 @@ public class ClassProductolmp implements Iproducto {
 		EntityManager em=fabr.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(producto);
-		System.out.println("Producto resgistrado en la BD correctamente");
+		System.out.println("Producto registrado en la BD correctamente");
 		em.getTransaction().commit();
 		em.close();
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public List<TblProductocl2> LIstadoProducto() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		EntityManagerFactory fabr = Persistence.createEntityManagerFactory("LPII_CL2_RosasBaldeonKevinJ");
+		EntityManager em = fabr.createEntityManager();
+		em.getTransaction().begin();
+		List<TblProductocl2> Listado = em.createQuery("select c from TblProductocl2 c", TblProductocl2.class).getResultList();
+		em.getTransaction().commit();
+		em.close();
+		return Listado;
 	}
 
 }

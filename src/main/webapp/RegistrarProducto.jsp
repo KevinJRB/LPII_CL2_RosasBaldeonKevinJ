@@ -9,7 +9,7 @@
 <body bgcolor="#c5dec9">
 <h1 align="center">Resgista Producto</h1>
 
-<form   action="ControladorProducto" method="post">
+<form   action="controladorproducto" method="post">
 <table   border="2"  align="center">
 
 <tr>

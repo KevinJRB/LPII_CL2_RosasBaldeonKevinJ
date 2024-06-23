@@ -1,7 +1,7 @@
 package controlador;
 
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,8 +29,20 @@ public class controladorproducto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		TblProductocl2 productos= new TblProductocl2();
+		ClassProductolmp crud= new ClassProductolmp();
+		List<TblProductocl2> Listado = crud.LIstadoProducto();
+		
+		
+		request.setAttribute("listaproductos",Listado);
+		
+		request.getRequestDispatcher("/Listado.jsp").forward(request, response);
+		
+		
+		
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
 	}
 
 	/**
@@ -42,7 +54,7 @@ public class controladorproducto extends HttpServlet {
 		    // Obtener los parámetros del formulario
 		    String nombre = request.getParameter("nombre");
 		    double precio = Double.parseDouble(request.getParameter("precio"));
-		    double precioventa= Double.parseDouble(request.getParameter("precioventa"));
+		    double precioventa= Double.parseDouble(request.getParameter("precioven"));
 		    String estado = request.getParameter("estado");
 		    String descripcion = request.getParameter("descripcion");
 
@@ -59,11 +71,14 @@ public class controladorproducto extends HttpServlet {
 
 		    // Invocar el método registrar
 		    crud.registrarproducto(producto);
-
+		    List<TblProductocl2> listadoproducto = crud.LIstadoProducto();
+		    request.setAttribute("listaproducto",listadoproducto );
+		    
 		    // Redireccionar a la vista
 		    request.getRequestDispatcher("/Listado.jsp").forward(request, response);
 
 		  
+		    
 		        }
 		    
 		
